@@ -1,1 +1,83 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123d32">
+<title>زاد القلوب</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Tahoma,Arial;background:#f7f5ed;color:#20372e}
+header{background:#123d32;color:white;text-align:center;padding:30px 15px;border-radius:0 0 28px 28px}
+header h1{font-size:30px;margin:5px}
+header p{color:#e8d9aa}
+main{max-width:650px;margin:auto;padding:18px}
+.welcome,.panel{background:white;border:1px solid #e8e1d2;border-radius:18px;padding:20px;margin-bottom:18px}
+h2,h3{color:#17604b}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.item{background:white;border:1px solid #e8e1d2;border-radius:16px;padding:18px 8px;text-align:center;cursor:pointer;color:#244638;font-size:16px}
+.item span{display:block;font-size:27px;margin-bottom:9px}
+.panel{display:none}
+.panel.active{display:block}
+button{border:0;border-radius:12px;padding:13px 20px;background:#17604b;color:white;font-size:16px;cursor:pointer;margin:5px}
+.secondary{background:#e9e2ce;color:#244638}
+.counter{font-size:48px;color:#17604b;text-align:center;margin:20px}
+footer{text-align:center;color:#7d887e;padding:25px}
+</style>
+</head>
+<body>
+<header>
+<h1>زاد القلوب 🌿</h1>
+<p>معرفة · ذكر · هداية</p>
+<p>رفيقك في رحلتك الإيمانية</p>
+</header>
+<main>
+<section class="welcome">
+<h2>أهلًا بك في زاد القلوب</h2>
+<p>مساحة تجمع المعرفة الإسلامية والأذكار والتأملات الإيمانية، لتكون زادًا لقلبك في كل يوم.</p>
+</section>
+<h3>أقسام التطبيق</h3>
+<div class="grid">
+<div class="item" onclick="show('azkar')"><span>🤲</span>الأذكار</div>
+<div class="item" onclick="show('hadith')"><span>📖</span>الأحاديث</div>
+<div class="item" onclick="show('stories')"><span>🌙</span>قصص وعبر</div>
+<div class="item" onclick="show('questions')"><span>❓</span>أسئلة وأجوبة</div>
+<div class="item" onclick="show('reflection')"><span>🌌</span>التفكر في خلق الله</div>
+<div class="item" onclick="show('quiz')"><span>🏆</span>المسابقة الإسلامية</div>
+<div class="item" onclick="show('ayah')"><span>📜</span>آية اليوم</div>
+<div class="item" onclick="show('daily')"><span>✨</span>ذكر اليوم</div>
+<div class="item" onclick="show('tasbeeh')"><span>📿</span>المسبحة الإلكترونية</div>
+</div>
+<section id="azkar" class="panel"><h3>🤲 الأذكار</h3><p>ستُضاف الأذكار وفضائلها وأعدادها.</p></section>
+<section id="hadith" class="panel"><h3>📖 الأحاديث</h3><p>ستُضاف الأحاديث مع الشرح والمصادر.</p></section>
+<section id="stories" class="panel"><h3>🌙 قصص وعبر</h3><p>ستُضاف القصص والعبر المستفادة منها.</p></section>
+<section id="questions" class="panel"><h3>❓ أسئلة وأجوبة</h3><p>ستُضاف الأسئلة والإجابات والشروحات.</p></section>
+<section id="reflection" class="panel"><h3>🌌 التفكر في خلق الله</h3><p>تأملات في آيات الله في الكون.</p></section>
+<section id="quiz" class="panel"><h3>🏆 المسابقة الإسلامية</h3><p>ستُضاف المسابقة التفاعلية وأسئلتها.</p></section>
+<section id="ayah" class="panel"><h3>📜 آية اليوم</h3><p>ستُضاف الآية وتفسيرها ومصدرها.</p></section>
+<section id="daily" class="panel"><h3>✨ ذكر اليوم</h3><p>سيُضاف الذكر اليومي وفضله.</p></section>
+<section id="tasbeeh" class="panel">
+<h3>📿 المسبحة الإلكترونية</h3>
+<p style="text-align:center">سبّح واذكر الله</p>
+<div class="counter" id="count">0</div>
+<div style="text-align:center">
+<button onclick="increase()">تسبيح</button>
+<button class="secondary" onclick="resetCount()">تصفير العداد</button>
+</div>
+</section>
+</main>
+<footer>زاد القلوب · معرفة · ذكر · هداية</footer>
+<script>
+function show(id){
+document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+let count=0;
+function increase(){count++;document.getElementById('count').textContent=count;}
+function resetCount(){count=0;document.getElementById('count').textContent=count;}
+</script>
+</body>
+</html>
+
